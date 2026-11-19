@@ -1,0 +1,106 @@
+//	Faça um programa que implemente uma função que recebe a idade de um nadador por parâmetro e retorna, a categoria desse nadador de acordo com a tabela abaixo:  
+//Idade	Categoria
+//5 a 7 anos	Infantil A
+//8 a 10 anos	Infantil B
+//11-13 anos	Juvenil A
+//14-17 anos	Juvenil B
+//Maiores de 18 anos (inclusive)	Adulto
+
+
+#include <stdio.h>
+
+
+int tabela(int idade)
+{
+    int result = 0;
+    
+    if(idade >= 5 && idade <= 7)
+    {
+        result = 1;
+    }
+    else
+    {
+        if(idade >= 8 && idade <= 10)
+        {
+            result = 2;
+        }
+        else
+        {
+            if(idade >= 11 && idade <=13)
+            {
+                result = 3;
+            }
+            else
+            {
+                if(idade >= 14 && idade <= 17)
+                {
+                    result = 4;
+                }
+                else
+                {
+                    result = 5;
+                }
+            }
+        }
+    }
+    return result;
+}
+
+
+void carac()
+{
+    int i;
+    for(i=0;i<45;i++)
+    {
+        printf("*");
+        printf("=");
+    }
+}
+
+
+int main()
+{
+    int idade, categoria=0;
+    
+    printf("\nInsira a idade do nadador: ");
+    scanf("%d", &idade);
+    
+    
+    carac();
+    categoria = tabela(idade);
+  
+    
+
+
+      if(categoria == 1)
+      {
+          printf("\nINFANTIL A");
+      }
+      else 
+      {
+          if(categoria == 2)
+          {
+              printf("\nINFANTIL B");
+          }
+          else
+          {
+              if(categoria == 3)
+              {
+                   printf("\nJUVENIL A");
+              }
+              else
+              {
+                  if(categoria == 4)
+                  {
+                       printf("\nJUVENIL B");
+                  }
+                  else
+                  {
+                       printf("\nADULTO");
+                  }
+              }
+          }
+      }
+    
+    
+}
