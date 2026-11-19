@@ -1,0 +1,63 @@
+//Faça uma função que recebe um valor inteiro e verifica se o valor é positivo, negativo ou zero.
+//A função deve retornar 1 para valores positivos, -1 para negativos e 0 para o valor 0.
+
+#include <stdio.h>
+
+int quest()
+{
+    int a;
+    
+    scanf("%d", &a);
+    
+    return a;
+    
+}
+ int calc(int b)
+ {
+    int valor;
+    
+    
+    if(b>0)
+    {
+        valor = 1;
+    }
+    else
+    {
+        if( b == 0)
+        {
+            valor = 0;
+        }
+        else
+        {
+            valor = -1;
+        }
+    }
+    
+    return valor;
+ }
+
+ int main()
+ {
+     int b, resu;
+    
+    printf("\nInsira um valor inteiro: ");
+    b = quest();
+    resu = calc(b);
+    
+    if(resu==0)
+    {
+        printf("\nValor e zero:%d", resu);
+    }
+    else
+    {
+        if(resu > 0)
+        {
+            printf("\nValor e positivo:%d", resu);
+        }
+        else
+        {
+            printf("\nValor e negativo:%d", resu);
+        }
+    }
+    
+ }
