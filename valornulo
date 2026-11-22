@@ -1,0 +1,63 @@
+//Elabore um programa que use uma função que recebe um valor e diga se é nulo ou não.
+#include <stdio.h>
+
+int scan()
+{
+    int val;
+    scanf("%d", &val);
+    return val;
+}
+int verif(int valor)
+{
+    int nulo;
+    
+    if(valor == 0)
+    {
+        nulo=0;
+    }
+    else
+    {
+        if(valor>0)
+        {
+            nulo = 1;
+        }
+        else
+        {
+            nulo = -1;
+        }
+    }
+    
+    return nulo;
+}
+void carc()
+{
+    int i;
+    for(i=0;i<15;i++)
+    {
+        printf("*");
+    }
+}
+int main()
+{
+    int valor, resul;
+    
+    printf("\nInsira um valor: ");
+    valor = scan();
+    carc();
+    resul = verif(valor);
+    if(resul == 0)
+    {
+        printf("\nValor e nulo!: %d", resul);
+    }
+    else
+    {
+        if(resul>0)
+        {
+            printf("\nValor e positivo!: %d", resul);
+        }
+        else
+        {
+            printf("\nValor e negativo!: %d", resul);
+        }
+    }
+}
