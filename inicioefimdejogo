@@ -1,0 +1,69 @@
+//Faça um programa que implementa uma função que recebe, por parâmetro, a hora de início 
+//e a hora de término de um jogo, ambas subdivididas em 2 valores distintos: horas e minutos. 
+//O procedimento deve retornar duração do jogo em horas, considerando que o tempo máximo 
+//de duração de um jogo é de 24 horas e que o jogo pode começar em um dia e terminar no outro.
+
+#include <stdio.h>
+
+int horas(int iniciohoras, int iniciomin, int fimmin, int fimhoras)
+{
+    int calculo;
+    int horas, horasfim;
+    
+    horas = iniciohoras * 60 + iniciomin;
+    horasfim = fimhoras * 60 + fimmin;
+    
+    if(horasfim < horas)
+    {
+        horasfim = horasfim + 1400;
+    }
+    
+    calculo = horasfim - horas;
+    calculo = calculo / 60;
+    
+    
+    return calculo;
+}
+
+void carac()
+{
+    int i;
+    for(i=0; i<35; i++)
+    {
+        printf("*");
+        printf("=");
+    }
+}
+
+
+
+int main()
+{
+    int iniciohoras, iniciomin;
+    int fimmin, fimhoras, result;
+    
+    
+    printf("\nInsira a hora de inicio do jogo:");
+    scanf("%d", &iniciohoras);
+    
+    carac();
+    
+    printf("\nInsira os minutos de inicio do jogo:");
+    scanf("%d", &iniciomin);
+    
+    carac();
+    
+    printf("\nInsira a hora de termino do jogo:");
+    scanf("%d", &fimhoras);
+    
+    carac();
+    
+    printf("\nInsira os minutos de termino do jogo:");
+    scanf("%d", &fimmin);
+    
+    carac();
+    
+    result = horas(iniciohoras, iniciomin, fimmin, fimhoras);
+    printf("\nTOTAL DA DURACAO DO JOGO:%d", result);
+    
+}
