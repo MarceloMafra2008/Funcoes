@@ -1,0 +1,53 @@
+// Crie um programa que utilizando uma função que recebe um valor e informe se ele é positivo ou não.
+
+#include <stdio.h>
+
+
+int scan()
+{
+    int val;
+    
+    scanf("%d", &val);
+    
+    return val;
+}
+
+int verif(int resu)
+{
+    int posi=0;
+    
+    if(resu > 0)
+    {
+        posi = posi + 1;
+    }
+    else
+    {
+        posi = posi - 1;
+    }
+    return posi;
+    
+}
+
+
+
+int main()
+{
+    int valor, resu;
+    
+    printf("\nInsira um valor:");
+    resu = scan();
+    
+    
+    valor = verif(resu);
+    
+    if(valor>0)
+    {
+        printf("Valor e positivo: %d", valor);
+    }
+    else
+    {
+       printf("Valor e negativo: %d", valor);
+    }
+   
+    
+}
