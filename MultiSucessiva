@@ -1,0 +1,35 @@
+//Elabore um programa, que deve utilizar função uma função 
+//para resolver a multiplicação de dois números naturais, através de somas sucessivas. 
+//A impressão do resultado deve ser realizada na main.
+//Por exemplo: 6 ∗ 4 = 4 + 4 + 4 + 4 + 4 + 4).
+//Implementações que não utilizarem função não serão consideradas.
+//Realize as consistências de dados necessárias. Lembrando, 
+//que um número natural é um inteiro positivo.
+
+#include <stdio.h>
+
+int soma()
+{
+    int n1, n2, total=0;
+    int i;
+    
+    printf("insira o valor de n1:");
+    scanf("%d", &n1);
+    
+    printf("Inisra o valor de n2:");
+    scanf("%d", &n2);
+    
+    for(i=0; i<n2; i++)
+    {
+        total = total + n1;
+    }
+    
+    return total;
+}
+
+
+
+int main()
+{
+    printf("Resultado da soma sucessiva(multiplicação):%d", soma());
+}
