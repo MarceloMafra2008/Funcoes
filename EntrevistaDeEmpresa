@@ -1,0 +1,144 @@
+//Uma empresa especializada em pesquisas de mercado foi contratada para coletar e analisar informações sobre o perfil 
+//de consumidores em um supermercado. O foco da pesquisa é saber se os entrevistados consomem a pasta de dentes produzida pela
+//empresa contratante.
+//Você deve desenvolver um programa em linguagem C que colete os dados dos entrevistados e calcule algumas estatísticas importantes.
+//O programa deve permitir a leitura dos dados de vários entrevistados, contendo:
+//•	Idade (inteiro positivo).
+//•	Estado civil:
+//o	1 para Solteiro(a),
+//o	2 para Casado(a).
+
+//•	Consome a pasta de dentes da marca pesquisada:
+//o	1 para Sim,
+//o	0 para Não.
+
+//O programa deve continuar coletando dados até que seja informada uma idade negativa, o que indica o fim das entrevistas.
+//Ao final, o programa deve exibir os seguintes resultados:
+//•	Idade do entrevistado mais novo que consome a pasta de dente.
+//•	Quantidade de entrevistados casados que não consomem a pasta de dente.
+//•	Média da idade dos entrevistados solteiros.
+//Você deve obrigatoriamente implementar e utilizar as seguintes funções:
+//- leitura e validação da idade;
+//- ler e validar estado civil;
+//- cálculo da média;
+//- imprimir saídas.
+//As saídas devem ser impressas da seguinte forma: 
+//********************************************************************************
+//Idade do entrevistado mais novo que consome pasta de dente: 
+//*********************************************************************************
+//#########################################################
+//Quantidade de casados que não consomem pasta de dente:
+//#########################################################
+//*********************************************************************************
+//Média da idade dos entrevistados solteiros:
+//*********************************************************************************
+#include <stdio.h>
+
+int anos()
+{
+    int idade;
+    
+    printf("Informe a idade do civil:");
+    scanf("%d", &idade);
+    
+    return idade;
+}
+int estado()
+{
+    int civil;
+    
+    printf("\nINSIRA 1 para solteiro(a)");
+    printf("\nINSIRA 2 para casado(a)");
+    printf("\nEstado Civil do etrevistado:");
+    scanf("%d", &civil);
+    while(civil>2 || civil <1)
+    {
+        printf("\nINCORRETO!");
+        printf("\nINSIRA 1 para solteiro(a)");
+        printf("\nINSIRA 2 para casado(a)");
+        printf("\nEstado Civil do etrevistado:");
+        scanf("%d", &civil);
+    }
+    
+    return civil;
+}
+
+int marca()
+{
+    int cons;
+    
+    printf("\nINSIRA 1 para sim e 0 para nao");
+    printf("\nO entrevistado consome a pasta:");
+    scanf("%d", &cons);
+    while(cons<0 || cons >1)
+    {
+         printf("INCORRETO!");
+         printf("\nINSIRA 1 para sim e 0 para nao");
+         printf("\nO entrevistado consome a pasta:");
+         scanf("%d", &cons);
+    }
+    
+    return cons;
+}
+void imprime(char c)
+{
+    int i;
+    
+    for(i=0; i<30; i++)
+    {
+        printf("%c", c);
+    }
+}
+
+int main()
+{
+    int idd=0, novo, qtdcs=0, i=0;
+    int consomem, civili, solte=0, total=0, media=0;
+    char c;
+    
+    
+    while((idd = anos()) >= 0)
+    {
+        if(i=0)
+        {
+            novo = idd;
+            i ++;
+        }
+        
+        if(idd < novo)
+        {
+           novo = idd;
+        }
+        
+        civili = estado();
+        consomem = marca();
+        if(civili == 1)
+        {
+            total = total + idd;
+            solte ++;
+        }
+        if(civili == 2 && consomem == 0)
+        {
+            qtdcs ++;
+        }
+    }
+    media = total/solte;
+    
+    imprime('*');
+    printf("\nEntrevistado mais novo que consome o produto:%d", novo);
+    printf("\n");
+    imprime('*');
+    printf("\n");
+    imprime('#');
+    
+    
+    printf("\nCasados que nao consome o produto:%d", qtdcs);
+    printf("\n");
+    imprime('#');
+    printf("\n");
+    imprime('*');
+    printf("\nMedia da idade de entrevistados solteiros:%d", media);
+    printf("\n");
+    imprime('*');
+}
+
