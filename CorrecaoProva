@@ -1,0 +1,51 @@
+//Uma instituição de ensino deseja informatizar o controle de desempenho dos alunos em suas avaliações. Para isso, você deve desenvolver um programa em linguagem C, organizado em funções, que ajude a processar as respostas de uma prova de múltipla escolha e calcular automaticamente as notas dos alunos.
+//A avaliação contém 10 questões (numeradas de 0 a 9), e foi realizada por 5 alunos (com código de identificação de 0 a 4). Cada questão tem cinco opções de resposta: a, b, c, d, e.
+//Seu programa deverá ler o gabarito oficial da prova, composto por 10 caracteres (um para cada questão), ler as respostas de cada um dos 5 alunos, armazenando-as, onde cada linha representa um aluno e cada coluna representa uma questão e Implementar uma função:
+//int corrigir_prova(int resp_aluno[10], char gabarito [10], int num_questoes);
+//Essa função compara as respostas de um aluno com o gabarito e retorna a quantidade de acertos (cada questão vale 1 ponto).
+//A função deve ser chamada para cada aluno individualmente.
+//Por fim, calcular as notas dos 5 alunos e armazená-las e exibir, ao final a quantidade de acertos.
+
+
+
+
+
+#include <stdio.h>
+int gabarito(char aluno[10], char gab[10])
+{
+    int qtd=0;
+    int j;
+    
+        for(j=0; j<10; j ++)
+        {
+            if(aluno[j] == gab[j])
+            {
+                qtd ++;
+            }
+        }
+        
+        return qtd;
+}
+
+int main()
+{
+    char aluno[5][10];
+    int i, j;
+    char gab[10]={'a', 'b', 'c', 'd', 'e', 'e', 'd', 'c', 'b', 'a'};
+
+    for(i=0;i<5;i++)
+    {
+        for(j=0;j<10;j++)
+        {
+            printf("\nInsira as respostas do aluno[%d]:", i + 1);
+            scanf(" %c", &aluno[i][j]);
+            while(aluno[i][j] != 'a' && aluno[i][j] != 'b' && aluno[i][j] != 'c'&& aluno[i][j] != 'd' && aluno[i][j] != 'e')
+            {
+                printf("\nResposta incorreta!");
+                printf("Insira as respostas do aluno[%d]:", i + 1);
+                scanf(" %c", &aluno[i][j]);
+            }
+        }
+        printf("\nAluno[%d], acertou[%d] ", i + 1, gabarito(aluno[i], gab));
+    }
+}
