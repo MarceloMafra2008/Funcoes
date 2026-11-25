@@ -1,0 +1,121 @@
+//Elabore um programa que solicita o total gasto de um cliente de uma loja e imprime as opções de pagamento. 
+//Solicita a opção desejada e imprime o valor total das prestações (se houverem).
+// Opção: a vista com 10% de desconto
+//Opção: em duas vezes (preço da etiqueta)
+// Opção: de 3 até 10 vezes com 3% de juros ao mês (somente para compras acima de R$ 100,00).
+ 
+//OBS: fazer uma função que imprime as opções, solicita a opção desejada e retorna a opção escolhida.
+//No programa principal, testar a opção escolhida e ativar a
+//função correspondente (uma função para cada opção).
+//Se não for implementada a função todo o programa será desconsiderado.
+//O programa será executado para cada cliente individualmente.
+
+#include <stdio.h>
+
+int opcao(float valor)
+{
+    int op;
+    
+    printf("\n|MENU|");
+    printf("\n|Opcao 1| A VISTA + 10%(desconto)");
+    printf("\n|opcao 2| EM 2x");
+    printf("\n|Opcao 3| DE 3x ATE 10x + 3%(juros)");
+    
+    printf("\nInsira a opcao desejada:");
+    scanf("%d", &op);
+    
+    while(op<1 || op>3)
+    {
+        printf("\nOPCAO INCORRETA!");
+        printf("\n|MENU|");
+        printf("\n|Opcao 1| A VISTA + 10%(desconto)");
+        printf("\n|opcao 2| EM 2x");
+        printf("\n|Opcao 3| DE 3x ATE 10x + 3%(juros)");
+    
+        printf("\nInsira a opcao desejada novamente:");
+        scanf("%d", &op);
+        
+    }
+    
+        if(op == 3)
+        {
+            if(valor < 100)
+            {
+                while(op<1 || op >2)
+                {
+                   printf("\nOpcao indisponivel|Valor menor que 100|"); 
+                   printf("\n|MENU|OPCOES DISPONIVEIS");
+                   printf("\n|Opcao 1| A VISTA + 10%(desconto)");
+                   printf("\n|opcao 2| EM 2x");
+                   printf("\nInsira uma das opcoes disponiveis!:");
+                   scanf("%d", &op);
+               }
+           }
+        }
+        
+    return op;
+}
+
+float vista(float valor)
+{
+    float result;
+    result = valor * 0.90;
+    return result;
+}
+float duas(float valor)
+{
+    float result2;
+    result2 = valor / 2;
+    return result2;
+}
+float vezes(float valor)
+{
+    float result3;
+    int qtd;
+    
+    printf("\nInsira a quantidade de parcelas:");
+    scanf("%d", &qtd);
+    if(qtd<3 || qtd>10)
+    {
+        printf("\nQuantidade de parcelas Invalidas!");
+        printf("\nEntre 3x ATE 10x!");
+        printf("\nInsira a quantidade de parcelas novamente:");
+        scanf("%d", &qtd);
+    }
+    result3 = valor / qtd;
+    result3 = result3 * 1.03;
+    
+    return result3;
+}
+
+int main()
+{
+    float total=0, valor;
+    int pick;
+    
+    printf("\nInsira o valor total da compra:");
+    scanf("%f", &valor);
+    
+    pick = opcao(valor);
+    
+    
+    if(pick == 1)
+    {
+        printf("\nValor pago a vista:%.2f", vista(valor));
+    }
+    else
+    {
+        if(pick == 2)
+        {
+            printf("\nValor pago em 2x:%.2f", duas(valor));
+        }
+        else
+        {
+            printf("\nValor em 3x ate 10x:%.2f", vezes(valor));
+        }
+    }
+    
+}
+
+
+
